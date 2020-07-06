@@ -6,3 +6,33 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* '*' Universal selector - selects every element on the page */
+*{
+    margin: 0; /* zero out the browser default settings */
+    padding: 0; /* zero out the browser default settings */
+    box-sizing: border-box; /* borders and padding no longer added */
+}
+
+/* Document parent element */
+Body{
+    font-family: "Lato", sans-serif; /* inherited by all child elelments */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /* 1.7 times bigger than the predefined line height */
+    color: #777;
+    padding: 30px;
+}
+
+.header{
+    height: 95vh; /* 95% of the view height */
+    background-image: linear-gradient(
+        to right bottom,
+        #7ed56fd8,
+        #28b485d8),
+    url(../img/hero.jpg); /* gradient (direction, color 1, color 2) --> image is below gradient*/
+    background-size: cover; /* Fit the element inside of the parent box */
+    background-position: top;
+
+    clip-path: polygon( 0 0, 100% 0, 100% 80vh, 0 100%); /* Clip the container's shape */
+}
