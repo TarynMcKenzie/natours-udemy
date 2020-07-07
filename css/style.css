@@ -24,6 +24,9 @@ Body{
     padding: 30px;
 }
 
+/* ------------------------------------ */
+/* ---------- Header Section ---------- */
+/* ------------------------------------ */
 .header{
     height: 95vh; /* 95% of the view height */
     background-image: linear-gradient(
@@ -87,6 +90,64 @@ Body{
 }
 
 /* ------------------------------------ */
+/* ---------- Button Styling ---------- */
+/* ------------------------------------ */
+.btn:link, .btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /* Treat element as inline text within a block element */
+    border-radius: 100px;
+    position: relative;
+    
+    transition: all .2s;
+}
+
+.btn:hover{
+    transform: translateY(-3px); /* Based on initial link state */
+    box-shadow: 0 10px 20px #00000021; /* (x y blur color) */
+}
+
+.btn:active{
+    transform: translateY(-1px); /* Based on initial link state */
+    box-shadow: 0 5px 10px #00000021; /* (x y blur color) */
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
+
+/* This element will hide behind the original element (child of original)*/
+.btn::after{
+    content: ""; /* Must be specified */
+    display: inline-block; /* Must be specified */
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.5) scaleY(1.8);
+    opacity: 0;
+}
+
+.btn-animated{
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; /* Applies 0% keyframe before animation begins */
+}
+
+/* ------------------------------------ */
 /* -------- Custom Animations --------- */
 /* ------------------------------------ */
 @keyframes moveInLeft {
@@ -121,27 +182,18 @@ Body{
     }
 }
 
-.btn:link, .btn:visited{
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block; /* Treat element as inline text within a block element */
-    border-radius: 100px;
-    
-    transition: all .2s;
-}
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translatey(100px); /* Begin movement from right side of x-axis */
+    }
 
-.btn:hover{
-    transform: translateY(-3px); /* Based on initial link state */
-    box-shadow: 0 10px 20px #00000021; /* (x y blur color) */
-}
+    80%{
+        transform: translatey(-10px);
+    }
 
-.btn:active{
-    transform: translateY(-1px); /* Based on initial link state */
-    box-shadow: 0 5px 10px #00000021; /* (x y blur color) */
-}
-
-.btn-white{
-    background-color: #fff;
-    color: #777;
+    100%{
+        opacity: 1;
+        transform: translate(0); /* End movement on original x-axis point */
+    }
 }
