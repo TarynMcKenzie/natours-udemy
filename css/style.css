@@ -8,20 +8,38 @@ Dark green: #28b485
 */
 
 /* '*' Universal selector - selects every element on the page */
-*{
+*, *::after, *::before{
     margin: 0; /* zero out the browser default settings */
     padding: 0; /* zero out the browser default settings */
-    box-sizing: border-box; /* borders and padding no longer added */
+    box-sizing: inherit; /* All elements will inherit the parent's border-box property value */
+}
+
+html{
+
+    /*NOTE => 1rem = 10px */
+    font-size: 62.5%; /* Set new root font-size ((10px)) */
+    
+    /*
+
+      * Root font-size (default) == 16px
+      * Using pixels to set the root is is bad practice
+      * This overrides the users ability to change font sizes on their browser
+      * Use % values to adjust the root font-size value
+      * value * 16 = percentage value
+
+    */
+
 }
 
 /* Document parent element */
 Body{
     font-family: "Lato", sans-serif; /* inherited by all child elelments */
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7; /* 1.7 times bigger than the predefined line height */
     color: #777;
-    padding: 30px;
+    padding: 3rem; /* ((30px)) */
+    box-sizing: border-box; /* borders and padding no longer added */
 }
 
 /* ------------------------------------ */
@@ -43,12 +61,12 @@ Body{
 
 .logo-box{
     position: absolute; /**/
-    top: 40px; /* 40 pixels from the top inside parent (.header) element */
-    left: 40px; /* 40 pixels from the left inside parent (.header) element */
+    top: 4rem; /* ((40 px)) from the top inside parent (.header) element */
+    left: 4rem; /* ((40 px)) from the left inside parent (.header) element */
 }
 
 .logo{
-    height: 35px; /* width is automatic */
+    height: 3.5rem; /* width is automatic ((35px))*/
 }
 
 .text-box{
@@ -64,14 +82,14 @@ Body{
     text-transform: uppercase;
 
     backface-visibility: hidden; /* Fixes the animation jumpiness */
-    margin-bottom: 60px;
+    margin-bottom: 6rem; /* ((60px)) */
 }
 
 .heading-primary-main{
     display: block; /* make span a block level element (takes up the full width of its container) */
-    font-size: 60px;
+    font-size: 6rem; /* ((60px)) */
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem; /* ((35px)) */
 
     animation-name: moveInLeft; /* Call on the custom animation */
     animation-duration: 1s;
@@ -82,9 +100,9 @@ Body{
 
 .heading-primary-sub{
     display: block; /* make span a block level element (takes up the full width of its container) */
-    font-size: 20px;
+    font-size: 2rem; /* ((20px)) */
     font-weight: 700;
-    letter-spacing: 17.5px;
+    letter-spacing: 1.75rem; /* ((17.5px)) */
 
     animation: ease-out 1s moveInRight;
 }
@@ -95,22 +113,23 @@ Body{
 .btn:link, .btn:visited{
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem; /* ((15px))  ((15px))*/
     display: inline-block; /* Treat element as inline text within a block element */
     border-radius: 100px;
     position: relative;
+    font-size: 1.6rem; /* ((16px)) */
     
     transition: all .2s;
 }
 
 .btn:hover{
     transform: translateY(-3px); /* Based on initial link state */
-    box-shadow: 0 10px 20px #00000021; /* (x y blur color) */
+    box-shadow: 0 1rem 2rem #00000021; /* (x y blur color)  ((10px))  ((20px))*/
 }
 
 .btn:active{
     transform: translateY(-1px); /* Based on initial link state */
-    box-shadow: 0 5px 10px #00000021; /* (x y blur color) */
+    box-shadow: 0 .5rem 1rem #00000021; /* (x y blur color)  ((5px))  ((10px))*/
 }
 
 .btn-white{
@@ -124,7 +143,7 @@ Body{
     display: inline-block; /* Must be specified */
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem; /* ((100px)) */
     position: absolute;
     top: 0;
     left: 0;
@@ -153,11 +172,11 @@ Body{
 @keyframes moveInLeft {
     0%{
         opacity: 0;
-        transform: translateX(-100px); /* Begin movement from right side of x-axis */
+        transform: translateX(-10rem); /* Begin movement from right side of x-axis ((-100px))*/
     }
 
     80%{
-        transform: translateX(10px);
+        transform: translateX(1rem); /* ((10px)) */
     }
 
     100%{
@@ -169,11 +188,11 @@ Body{
 @keyframes moveInRight {
     0%{
         opacity: 0;
-        transform: translateX(100px); /* Begin movement from right side of x-axis */
+        transform: translateX(10rem); /* Begin movement from right side of x-axis ((100px))*/
     }
 
     80%{
-        transform: translateX(-10px);
+        transform: translateX(-1rem); /* ((-10px)) */
     }
 
     100%{
@@ -185,11 +204,7 @@ Body{
 @keyframes moveInBottom {
     0%{
         opacity: 0;
-        transform: translatey(100px); /* Begin movement from right side of x-axis */
-    }
-
-    80%{
-        transform: translatey(-10px);
+        transform: translatey(3rem); /* Begin movement from right side of x-axis ((30px))*/
     }
 
     100%{
