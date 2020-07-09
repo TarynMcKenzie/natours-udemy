@@ -15,31 +15,34 @@
 
     <body>
 
-        <!-- Header section -->
+        <!-- BEM (Block Element Modifer) -->
+        <!-- Block == Stand alone element (example: class="header") -->
+        <!-- Element == NOT a stand alone element (example: class="header__logo") -->
+        <!-- Modifier == Modifies the block properties (example: class="btn--white") -->
 
+        <!-- Header section -->
         <header class="header">
             
             <!-- Image container -->
-            <div class="logo-box">
+            <div class="header__logo-box">
                 
                 <!-- Image (inline element) -->
-                <img src="img/logo-white.png" alt="Natours logo" class="logo">
+                <img src="img/logo-white.png" alt="Natours logo" class="header__logo">
             
             </div>
 
             <!-- Text positioning box -->
-            <div class="text-box">
+            <div class="header__text-box">
 
                 <!-- Page title -->
                 <h1 class="heading-primary">
 
-                    <span class="heading-primary-main">Outdoors</span>
-                    <span class="heading-primary-sub">is where life happens</span>
+                    <span class="heading-primary--main">Outdoors</span>
+                    <span class="heading-primary--sub">is where life happens</span>
 
-                    
                 </h1>
                 
-                <a href="#" class="btn btn-white btn-animated">Discover our tours</a>
+                <a href="#" class="btn btn--white btn--animated">Discover our tours</a>
 
             </div>
 

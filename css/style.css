@@ -59,17 +59,17 @@ Body{
     clip-path: polygon( 0 0, 100% 0, 100% 80vh, 0 100%); /* Clip the container's shape */
 }
 
-.logo-box{
+.header__logo-box{
     position: absolute; /**/
     top: 4rem; /* ((40 px)) from the top inside parent (.header) element */
     left: 4rem; /* ((40 px)) from the left inside parent (.header) element */
 }
 
-.logo{
+.header__logo{
     height: 3.5rem; /* width is automatic ((35px))*/
 }
 
-.text-box{
+.header__text-box{
     position: absolute;
     top: 45%;
     left: 50%;
@@ -85,7 +85,7 @@ Body{
     margin-bottom: 6rem; /* ((60px)) */
 }
 
-.heading-primary-main{
+.heading-primary--main{
     display: block; /* make span a block level element (takes up the full width of its container) */
     font-size: 6rem; /* ((60px)) */
     font-weight: 400;
@@ -98,7 +98,7 @@ Body{
     /* animation-iteration-count: 3; */
 }
 
-.heading-primary-sub{
+.heading-primary--sub{
     display: block; /* make span a block level element (takes up the full width of its container) */
     font-size: 2rem; /* ((20px)) */
     font-weight: 700;
@@ -132,7 +132,7 @@ Body{
     box-shadow: 0 .5rem 1rem #00000021; /* (x y blur color)  ((5px))  ((10px))*/
 }
 
-.btn-white{
+.btn--white{
     background-color: #fff;
     color: #777;
 }
@@ -152,7 +152,7 @@ Body{
     transition: all .4s;
 }
 
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 }
 
@@ -161,7 +161,7 @@ Body{
     opacity: 0;
 }
 
-.btn-animated{
+.btn--animated{
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards; /* Applies 0% keyframe before animation begins */
 }
