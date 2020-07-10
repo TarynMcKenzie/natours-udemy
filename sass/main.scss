@@ -1,0 +1,214 @@
+// Color Variables
+$color-primary-light: #7ed56f;
+$color-primary: #55c57a;
+$color-primary-dark: #28b485;
+$color-primary-light-opacity:#7ed56fd8;
+$color-primary-dark-opacity:#28b485d8;
+$color-grey-dark: #777;
+$color-white: #fff;
+
+/* '*' Universal selector - selects every element on the page */
+*, *::after, *::before{
+    margin: 0; /* zero out the browser default settings */
+    padding: 0; /* zero out the browser default settings */
+    box-sizing: inherit; /* All elements will inherit the parent's border-box property value */
+}
+
+html{
+
+    /*NOTE => 1rem = 10px */
+    font-size: 62.5%; /* Set new root font-size ((10px)) */
+    
+    /*
+
+      * Root font-size (default) == 16px
+      * Using pixels to set the root is is bad practice
+      * This overrides the users ability to change font sizes on their browser
+      * Use % values to adjust the root font-size value
+      * value * 16 = percentage value
+
+    */
+
+}
+
+/* Document parent element */
+Body{
+    font-family: "Lato", sans-serif; /* inherited by all child elelments */
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7; /* 1.7 times bigger than the predefined line height */
+    color: $color-grey-dark;
+    padding: 3rem; /* ((30px)) */
+    box-sizing: border-box; /* borders and padding no longer added */
+}
+
+/* ------------------------------------ */
+/* ---------- Header Section ---------- */
+/* ------------------------------------ */
+.header{
+    height: 95vh; /* 95% of the view height */
+    background-image: linear-gradient(
+        to right bottom,
+        $color-primary-light-opacity,
+        $color-primary-dark-opacity),
+    url(../img/hero.jpg); /* gradient (direction, color 1, color 2) --> image is below gradient*/
+    background-size: cover; /* Fit the element inside of the parent box */
+    background-position: top;
+    position: relative; /* Parent element for the logo box positioning */
+
+    clip-path: polygon( 0 0, 100% 0, 100% 80vh, 0 100%); /* Clip the container's shape */
+}
+
+.header__logo-box{
+    position: absolute; /**/
+    top: 4rem; /* ((40 px)) from the top inside parent (.header) element */
+    left: 4rem; /* ((40 px)) from the left inside parent (.header) element */
+}
+
+.header__logo{
+    height: 3.5rem; /* width is automatic ((35px))*/
+}
+
+.header__text-box{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* position based on center of element */
+    text-align: center; /* inline-text will be centered */
+}
+
+.heading-primary{
+    color: $color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden; /* Fixes the animation jumpiness */
+    margin-bottom: 6rem; /* ((60px)) */
+}
+
+.heading-primary--main{
+    display: block; /* make span a block level element (takes up the full width of its container) */
+    font-size: 6rem; /* ((60px)) */
+    font-weight: 400;
+    letter-spacing: 3.5rem; /* ((35px)) */
+
+    animation-name: moveInLeft; /* Call on the custom animation */
+    animation-duration: 1s;
+    animation-timing-function: ease-out; /* Control the animation progression */
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */
+}
+
+.heading-primary--sub{
+    display: block; /* make span a block level element (takes up the full width of its container) */
+    font-size: 2rem; /* ((20px)) */
+    font-weight: 700;
+    letter-spacing: 1.75rem; /* ((17.5px)) */
+
+    animation: ease-out 1s moveInRight;
+}
+
+/* ------------------------------------ */
+/* ---------- Button Styling ---------- */
+/* ------------------------------------ */
+.btn:link, .btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem; /* ((15px))  ((15px))*/
+    display: inline-block; /* Treat element as inline text within a block element */
+    border-radius: 100px;
+    position: relative;
+    font-size: 1.6rem; /* ((16px)) */
+    
+    transition: all .2s;
+}
+
+.btn:hover{
+    transform: translateY(-3px); /* Based on initial link state */
+    box-shadow: 0 1rem 2rem #00000021; /* (x y blur color)  ((10px))  ((20px))*/
+}
+
+.btn:active{
+    transform: translateY(-1px); /* Based on initial link state */
+    box-shadow: 0 .5rem 1rem #00000021; /* (x y blur color)  ((5px))  ((10px))*/
+}
+
+.btn--white{
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
+
+/* This element will hide behind the original element (child of original)*/
+.btn::after{
+    content: ""; /* Must be specified */
+    display: inline-block; /* Must be specified */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem; /* ((100px)) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+    transition: all .4s;
+}
+
+.btn--white::after{
+    background-color: $color-white;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.5) scaleY(1.8);
+    opacity: 0;
+}
+
+.btn--animated{
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; /* Applies 0% keyframe before animation begins */
+}
+
+/* ------------------------------------ */
+/* -------- Custom Animations --------- */
+/* ------------------------------------ */
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem); /* Begin movement from right side of x-axis ((-100px))*/
+    }
+
+    80%{
+        transform: translateX(1rem); /* ((10px)) */
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0); /* End movement on original x-axis point */
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translateX(10rem); /* Begin movement from right side of x-axis ((100px))*/
+    }
+
+    80%{
+        transform: translateX(-1rem); /* ((-10px)) */
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0); /* End movement on original x-axis point */
+    }
+}
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translatey(3rem); /* Begin movement from right side of x-axis ((30px))*/
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0); /* End movement on original x-axis point */
+    }
+}
