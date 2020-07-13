@@ -1,0 +1,31 @@
+// SECTION: partical sass file
+//       Low level basics: resets, html style, body element selectors, etc.
+
+/* NOTE: '*' Universal selector - selects every element on the page */
+*, *::after, *::before{
+    margin: 0; /* zero out the browser default settings */
+    padding: 0; /* zero out the browser default settings */
+    box-sizing: inherit; /* All elements will inherit the parent's border-box property value */
+}
+
+html{
+
+    /* NOTE: => 1rem = 10px */
+    font-size: 62.5%; /* Set new root font-size ((10px)) */
+    
+    /*
+
+      * Root font-size (default) == 16px
+      * Using pixels to set the root is is bad practice
+      * This overrides the users ability to change font sizes on their browser
+      * Use % values to adjust the root font-size value
+      * value * 16 = percentage value
+
+    */
+
+}
+
+/*  NOTE: Document parent element */
+Body{
+    box-sizing: border-box; /* borders and padding no longer added */
+}

@@ -1,4 +1,4 @@
-/* '*' Universal selector - selects every element on the page */
+/* NOTE: '*' Universal selector - selects every element on the page */
 *, *::after, *::before {
   margin: 0;
   /* zero out the browser default settings */
@@ -8,7 +8,7 @@
   /* All elements will inherit the parent's border-box property value */ }
 
 html {
-  /*NOTE => 1rem = 10px */
+  /* NOTE: => 1rem = 10px */
   font-size: 62.5%;
   /* Set new root font-size ((10px)) */
   /*
@@ -21,7 +21,7 @@ html {
 
     */ }
 
-/* Document parent element */
+/*  NOTE: Document parent element */
 Body {
   font-family: "Lato", sans-serif;
   /* inherited by all child elelments */
@@ -35,9 +35,93 @@ Body {
   box-sizing: border-box;
   /* borders and padding no longer added */ }
 
-/* ------------------------------------ */
-/* ---------- Header Section ---------- */
-/* ------------------------------------ */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+    /* Begin movement from right side of x-axis ((-100px))*/ }
+  80% {
+    transform: translateX(1rem);
+    /* ((10px)) */ }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* End movement on original x-axis point */ } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+    /* Begin movement from right side of x-axis ((100px))*/ }
+  80% {
+    transform: translateX(-1rem);
+    /* ((-10px)) */ }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* End movement on original x-axis point */ } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translatey(3rem);
+    /* Begin movement from right side of x-axis ((30px))*/ }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* End movement on original x-axis point */ } }
+
+.btn {
+  /*  NOTE: This element will hide behind the original element (child of original)*/ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* ((15px))  ((15px))*/
+    display: inline-block;
+    /* Treat element as inline text within a block element */
+    border-radius: 100px;
+    position: relative;
+    font-size: 1.6rem;
+    /* ((16px)) */
+    transition: all .2s; }
+  .btn:hover {
+    transform: translateY(-3px);
+    /* Based on initial link state */
+    box-shadow: 0 1rem 2rem #00000021;
+    /* (x y blur color)  ((10px))  ((20px))*/ }
+    .btn:hover::after {
+      transform: scaleX(1.5) scaleY(1.8);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    /* Based on initial link state */
+    box-shadow: 0 0.5rem 1rem #00000021;
+    /* (x y blur color)  ((5px))  ((10px))*/ }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: "";
+    /* Must be specified */
+    display: inline-block;
+    /* Must be specified */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* ((100px)) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+  .btn--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+    /* Applies 0% keyframe before animation begins */ }
+
 .header {
   height: 95vh;
   /* 95% of the view height */
@@ -99,96 +183,3 @@ Body {
     letter-spacing: 1.75rem;
     /* ((17.5px)) */
     animation: ease-out 1s moveInRight; }
-
-/* ------------------------------------ */
-/* ---------- Button Styling ---------- */
-/* ------------------------------------ */
-.btn {
-  /* This element will hide behind the original element (child of original)*/ }
-  .btn:link, .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    /* ((15px))  ((15px))*/
-    display: inline-block;
-    /* Treat element as inline text within a block element */
-    border-radius: 100px;
-    position: relative;
-    font-size: 1.6rem;
-    /* ((16px)) */
-    transition: all .2s; }
-  .btn:hover {
-    transform: translateY(-3px);
-    /* Based on initial link state */
-    box-shadow: 0 1rem 2rem #00000021;
-    /* (x y blur color)  ((10px))  ((20px))*/ }
-    .btn:hover::after {
-      transform: scaleX(1.5) scaleY(1.8);
-      opacity: 0; }
-  .btn:active {
-    transform: translateY(-1px);
-    /* Based on initial link state */
-    box-shadow: 0 0.5rem 1rem #00000021;
-    /* (x y blur color)  ((5px))  ((10px))*/ }
-  .btn--white {
-    background-color: #fff;
-    color: #777; }
-    .btn--white::after {
-      background-color: #fff; }
-  .btn::after {
-    content: "";
-    /* Must be specified */
-    display: inline-block;
-    /* Must be specified */
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    /* ((100px)) */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s; }
-  .btn--animated {
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards;
-    /* Applies 0% keyframe before animation begins */ }
-
-/* ------------------------------------ */
-/* -------- Custom Animations --------- */
-/* ------------------------------------ */
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-    /* Begin movement from right side of x-axis ((-100px))*/ }
-  80% {
-    transform: translateX(1rem);
-    /* ((10px)) */ }
-  100% {
-    opacity: 1;
-    transform: translate(0);
-    /* End movement on original x-axis point */ } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem);
-    /* Begin movement from right side of x-axis ((100px))*/ }
-  80% {
-    transform: translateX(-1rem);
-    /* ((-10px)) */ }
-  100% {
-    opacity: 1;
-    transform: translate(0);
-    /* End movement on original x-axis point */ } }
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translatey(3rem);
-    /* Begin movement from right side of x-axis ((30px))*/ }
-  100% {
-    opacity: 1;
-    transform: translate(0);
-    /* End movement on original x-axis point */ } }

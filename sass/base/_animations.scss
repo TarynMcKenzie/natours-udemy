@@ -1,0 +1,46 @@
+// SECTION: partical sass file
+//       Low level basics: resets, html style, body element selectors, etc.
+
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem); /* Begin movement from right side of x-axis ((-100px))*/
+    }
+
+    80%{
+        transform: translateX(1rem); /* ((10px)) */
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0); /* End movement on original x-axis point */
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translateX(10rem); /* Begin movement from right side of x-axis ((100px))*/
+    }
+
+    80%{
+        transform: translateX(-1rem); /* ((-10px)) */
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0); /* End movement on original x-axis point */
+    }
+}
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translatey(3rem); /* Begin movement from right side of x-axis ((30px))*/
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0); /* End movement on original x-axis point */
+    }
+}
