@@ -1,2 +1,10 @@
 // SECTION: partical sass file
 //       Does not output any CSS
+
+@mixin clearfix{ // Appends psuedo element after the element --> clearing the floats
+    &::after{
+        content: ""; // ** Required **
+        display: table; // ** Required **
+        clear: both; // clear left and right floats
+    }
+}

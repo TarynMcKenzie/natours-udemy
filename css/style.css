@@ -23,15 +23,6 @@ html {
 
 /*  NOTE: Document parent element */
 Body {
-  font-family: "Lato", sans-serif;
-  /* inherited by all child elelments */
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  /* 1.7 times bigger than the predefined line height */
-  color: #777;
-  padding: 3rem;
-  /* ((30px)) */
   box-sizing: border-box;
   /* borders and padding no longer added */ }
 
@@ -70,6 +61,50 @@ Body {
     opacity: 1;
     transform: translate(0);
     /* End movement on original x-axis point */ } }
+
+/*  NOTE: Document parent element */
+Body {
+  font-family: "Lato", sans-serif;
+  /* inherited by all child elelments */
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  /* 1.7 times bigger than the predefined line height */
+  color: #777;
+  padding: 3rem;
+  /* ((30px)) */ }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* Fixes the animation jumpiness */
+  margin-bottom: 6rem;
+  /* ((60px)) */ }
+  .heading-primary--main {
+    display: block;
+    /* make span a block level element (takes up the full width of its container) */
+    font-size: 6rem;
+    /* ((60px)) */
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* ((35px)) */
+    animation-name: moveInLeft;
+    /* Call on the custom animation */
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* Control the animation progression */
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */ }
+  .heading-primary--sub {
+    display: block;
+    /* make span a block level element (takes up the full width of its container) */
+    font-size: 2rem;
+    /* ((20px)) */
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* ((17.5px)) */
+    animation: ease-out 1s moveInRight; }
 
 .btn {
   /*  NOTE: This element will hide behind the original element (child of original)*/ }
@@ -152,34 +187,29 @@ Body {
     text-align: center;
     /* inline-text will be centered */ }
 
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /* Fixes the animation jumpiness */
-  margin-bottom: 6rem;
-  /* ((60px)) */ }
-  .heading-primary--main {
-    display: block;
-    /* make span a block level element (takes up the full width of its container) */
-    font-size: 6rem;
-    /* ((60px)) */
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /* ((35px)) */
-    animation-name: moveInLeft;
-    /* Call on the custom animation */
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /* Control the animation progression */
-    /* animation-delay: 3s; */
-    /* animation-iteration-count: 3; */ }
-  .heading-primary--sub {
-    display: block;
-    /* make span a block level element (takes up the full width of its container) */
-    font-size: 2rem;
-    /* ((20px)) */
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    /* ((17.5px)) */
-    animation: ease-out 1s moveInRight; }
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left;
+    background-color: #eee; }
+    .row [class^="col-"]:not(:last-of-type) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc( 2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }

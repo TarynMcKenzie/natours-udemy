@@ -7,7 +7,13 @@ $color-primary-dark: #28b485;
 $color-primary-light-opacity:#7ed56fd8;
 $color-primary-dark-opacity:#28b485d8;
 
+$color-grey-light: #eee;
 $color-grey-dark: #777;
 $color-white: #fff;
 $color-black: #000;
 $color-black-opacity: #00000021;
+
+// NOTE: Grid Variables
+$grid-width: 114rem; // ((1140px))
+$gutter-vertical: 8rem; // ((80px))
+$gutter-horizontal: 6rem; // ((60px))
