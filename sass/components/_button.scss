@@ -1,45 +1,45 @@
 // SECTION: partical sass file: Block-level elements, independent, reusable elements
 
-.btn{
+.btn {
 
-    &:link, &:visited{
+    &:link, &:visited {
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem; /* ((15px))  ((15px))*/
         display: inline-block; /* Treat element as inline text within a block element */
         border-radius: 100px;
         position: relative;
-        font-size: 1.6rem; /* ((16px)) */
+        font-size: $default-font-size; /* ((16px)) */
         
         transition: all .2s;
     }
     
-    &:hover{
+    &:hover {
         transform: translateY(-3px); /* Based on initial link state */
         box-shadow: 0 1rem 2rem $color-black-opacity; /* (x y blur color)  ((10px))  ((20px))*/
        
-        &::after{
+        &::after {
             transform: scaleX(1.5) scaleY(1.8);
             opacity: 0;
         }
     }
     
-    &:active{
+    &:active {
         transform: translateY(-1px); /* Based on initial link state */
         box-shadow: 0 .5rem 1rem $color-black-opacity; /* (x y blur color)  ((5px))  ((10px))*/
     }
     
-    &--white{
+    &--white {
         background-color: $color-white;
         color: $color-grey-dark;
         
-        &::after{
+        &::after {
             background-color: $color-white;
         }
     }
     
     /*  NOTE: This element will hide behind the original element (child of original)*/
-    &::after{
+    &::after {
         content: ""; /* Must be specified */
         display: inline-block; /* Must be specified */
         height: 100%;
@@ -53,9 +53,35 @@
         transition: all .4s;
     }
     
-    &--animated{
+    &--animated {
         animation: moveInBottom .5s ease-out .75s;
         animation-fill-mode: backwards; /* Applies 0% keyframe before animation begins */
     }
     
+}
+
+.button-text {
+
+    &:link, &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        text-decoration: none;
+        display: inline-block;
+        
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem $color-black-opacity;
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem $color-black-opacity;
+        transform: translateY(0);
+    }
 }
