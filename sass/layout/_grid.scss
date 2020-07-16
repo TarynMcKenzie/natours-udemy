@@ -14,7 +14,6 @@
     [class^="col-"] { // Attribut selector ' [] '--> select all of the elements the start '^' with col-
         
         float: left;
-        background-color: $color-grey-light;
         
         &:not(:last-of-type){ // Negation pseudo class --> Select all .col-1-of-2 elements but the last one
             margin-right: $gutter-horizontal;

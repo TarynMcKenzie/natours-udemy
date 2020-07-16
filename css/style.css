@@ -218,6 +218,32 @@ Body {
   box-shadow: 0 0.5rem 1rem #00000021;
   transform: translateY(0); }
 
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem #00000021;
+    position: absolute;
+    z-index: 1;
+    transition: all .2s;
+    outline-offset: 2rem; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    .composition__photo:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem #00000021;
+      z-index: 2;
+      outline: 1.5rem solid #55c57a; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.95); }
+
 .header {
   height: 95vh;
   /* 95% of the view height */
@@ -258,8 +284,7 @@ Body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    float: left;
-    background-color: #eee; }
+    float: left; }
     .row [class^="col-"]:not(:last-of-type) {
       margin-right: 6rem; }
   .row .col-1-of-2 {
