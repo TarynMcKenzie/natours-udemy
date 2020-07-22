@@ -37,6 +37,15 @@
             background-color: $color-white;
         }
     }
+
+    &--primary {
+        background-color: $color-primary;
+        color: $color-white;
+        
+        &::after {
+            background-color: $color-primary;
+        }
+    }
     
     /*  NOTE: This element will hide behind the original element (child of original)*/
     &::after {
