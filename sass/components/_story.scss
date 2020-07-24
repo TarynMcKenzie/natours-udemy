@@ -1,0 +1,45 @@
+// SECTION: partial sass file: Block-level elements, independent, reusable elements
+
+.story {
+
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem $color-black-opacity;
+    background-color: $color-white;
+    border-radius: 3px;
+
+    padding: 6rem;
+    padding-left: 9rem; // Padding for the 3rem translation + the 6rem padding
+    font-size: $default-font-size;
+
+    transform: skewX(-12deg);
+
+    &__shape {
+
+        height: 15rem; // *Required* for shape-outside property
+        width: 15rem; // *Required* for shape-outside property
+        float: left; // *Required* for shape-outside property
+        -webkit-shape-outside: circle(50% at 50% 50%); // circle(radius% at center posittion)
+        shape-outside: circle(50% at 50% 50%); // circle(radius% at center posittion)
+
+        -webkit-clip-path: circle(50% at 50% 50%); // circle(radius% at center posittion)
+        clip-path: circle(50% at 50% 50%); // circle(radius% at center posittion)
+        // background-color: antiquewhite;
+
+        transform: translateX(-3rem) skewX(12deg); // Move the floated circle element without margin or padding
+
+    }
+
+    &__img {
+
+        height: 100%; // 100% of the parent element
+
+    }
+
+    &__text {
+
+        transform: skewX(12deg);
+        
+    }
+
+}
