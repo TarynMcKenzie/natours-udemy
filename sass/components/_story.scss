@@ -6,7 +6,7 @@
     margin: 0 auto;
     box-shadow: 0 3rem 6rem $color-black-opacity;
     background-color: rgba($color-white, .15);
-    border-radius: 3px;
+    border-radius: $default-border-radius;
 
     padding: 6rem;
     padding-left: 9rem; // Padding for the 3rem translation + the 6rem padding

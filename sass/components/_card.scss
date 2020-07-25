@@ -19,7 +19,7 @@
         overflow: hidden;
         backface-visibility: hidden;
 
-        border-radius: 3px;
+        border-radius: $default-border-radius;
         box-shadow: 0 1.5rem 4rem $color-black-opacity;
 
         &--front {
