@@ -1,0 +1,65 @@
+// SECTION: partial sass file: Block-level elements, independent, reusable elements
+
+.form{
+
+    &__group:not(:last-child) { // Select all elements in the group but the last child
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+
+        font-family: inherit; // Inherits font family from parent
+        color: inherit; // Inherits font color from parent
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: $default-border-radius;
+        background-color: rgba($color-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+
+        &:focus{ // Pseudo Class
+
+            outline: none; // Remove the browser default setting
+
+            box-shadow: 0 1.5rem 4rem $color-black-opacity; // *Accesibility* Define focused element styling
+            border-bottom: 3px solid $color-primary;
+
+            &:invalid {
+                border-bottom: 3px solid $color-secondary-dark;
+            }
+
+        }
+
+        &::-webkit-input-placeholder { // Pseudo Element
+    
+            color: $color-grey-dark-alt;
+    
+        }
+        
+    }
+    
+
+    &__label {
+
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+
+        transition: all .3s;
+
+    }
+
+
+    &__input:placeholder-shown + &__label { // '+' adjecent sibling after selector  vs '~' general sibling slector
+
+        opacity: 0; // Hide the element
+        visibility: hidden; // Really hide the element
+        transform: translateY(-4rem);
+
+    }
+
+}
