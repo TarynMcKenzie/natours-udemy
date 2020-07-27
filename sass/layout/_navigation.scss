@@ -30,6 +30,8 @@
         width: 7rem;
         border-radius: 50%;
         box-shadow: 0 1rem 3rem $color-black-opacity;
+        text-align: center;
+        cursor: pointer;
 
         position: fixed;
         top: 6rem;
@@ -110,16 +112,93 @@
     }
 
 
-    &__checkbox:checked ~ &__background { // When the checkbox is checked, selected with general sibling with this class
+    // NOTE: Menu Toggle Animations
+    &__checkbox:checked ~ &__background { // When the checkbox is checked, select all general siblings with this class
 
         transform: scale(80);
 
     }
 
-    &__checkbox:checked ~ &__nav { // When the checkbox is checked, selected with general sibling with this class
+    &__checkbox:checked ~ &__nav { // When the checkbox is checked, select all general siblings with this class
 
         opacity: 1;
         width: 100%;
+
+    }
+
+
+    // NOTE: Icon Animations
+    &__icon {
+
+        position: relative;
+        margin-top: 3.5rem;
+
+        &,
+        &::before,
+        &::after {
+
+            width: 3rem;
+            height: 2px;
+            background-color: $color-darkest-grey;
+
+            display: inline-block; // *required*
+
+        }
+
+        &::before,
+        &::after {
+
+            content: ""; // *required*
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+
+        }
+
+        &::before { 
+            
+            top: -.8rem;
+        
+        }
+
+        &::after { 
+            
+            top: .8rem;
+        
+        }
+
+    }
+
+    &__button:hover &__icon::before { // When the element is hovered, select all elements with this class
+
+        top: -1rem;
+
+    }
+
+    &__button:hover &__icon::after { // When the element is hovered, select all elements with this class
+
+        top: 1rem;
+
+    }
+
+
+    &__checkbox:checked + &__button &__icon{ // When the button is checked, select the child of the checkbox adjacent sibling (button)
+
+        background-color: transparent; // Hide the element
+
+    }
+
+    &__checkbox:checked + &__button &__icon::before{ // When the button is checked, select the child of the checkbox adjacent sibling (button)
+
+        top: 0;
+        transform: rotate(135deg); // 180 - 45 degrees
+
+    }
+
+    &__checkbox:checked + &__button &__icon::after{ // When the button is checked, select the child of the checkbox adjacent sibling (button)
+
+        top: 0;
+        transform: rotate(-135deg); // 180 - 45 degrees
 
     }
 
