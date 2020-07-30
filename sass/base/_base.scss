@@ -23,9 +23,31 @@ html{
 
     */
 
+
+    // NOTE: Media Queries
+    @include respond(tab-land) { // < 900px width
+
+        font-size: 56.25%; // ((9px))
+
+    }
+
+    @include respond(tab-port) { // < 1200px width
+
+        font-size: 50%; // ((8px))
+
+    }
+
+    @include respond(big-desk) { // < 1800px + width
+
+        font-size: 75%; // ((12px))
+
+    }
+
 }
 
 /*  NOTE: Document parent element */
-Body{
+Body {
+
     box-sizing: border-box; /* borders and padding no longer added */
+
 }

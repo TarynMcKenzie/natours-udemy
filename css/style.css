@@ -1,3 +1,23 @@
+/*
+    0 - 600px           -->      Phone
+    600 - 900px         -->      Tablet Portrait
+    900 - 1200px        -->      Tablet Landscape
+    [1200 - 1800]       -->      Desktop
+    1800 +              -->      Large Desktop
+
+
+    $breakpoint argument choices:
+
+        phone
+        tab-port
+        tab-land
+        big-desk
+
+    em equation: 
+    
+        px Unit / 16
+
+*/
 /* NOTE: '*' Universal selector - selects every element on the page */
 *, *::after, *::before {
   margin: 0;
@@ -20,6 +40,15 @@ html {
       * value * 16 = percentage value
 
     */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 /*  NOTE: Document parent element */
 Body {
@@ -715,7 +744,7 @@ Body {
   right: 6.5rem;
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1;
-  transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1); }
+  transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1); }
 
 .navigation__button {
   background-color: #fff;
@@ -738,7 +767,7 @@ Body {
   z-index: 2;
   opacity: 0;
   width: 0;
-  transition: all 1.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
 .navigation__list {
   width: 100%;
