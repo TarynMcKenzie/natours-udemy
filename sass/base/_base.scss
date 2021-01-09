@@ -49,5 +49,13 @@ html{
 Body {
 
     box-sizing: border-box; /* borders and padding no longer added */
+    padding: 3rem; /* ((30px)) */
+
+    // NOTE: Media Queries
+    @include respond(tab-port) { // < 1200px width
+
+        padding: 0;
+
+    }
 
 }

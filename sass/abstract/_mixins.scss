@@ -41,6 +41,9 @@
     
         px Unit / 16
 
+
+    ORDER: Base + Typography > General Layout + grid > Page Layout > Components
+
 */ 
 
 @mixin respond($breakpoint) {

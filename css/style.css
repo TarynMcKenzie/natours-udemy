@@ -17,6 +17,9 @@
     
         px Unit / 16
 
+
+    ORDER: Base + Typography > General Layout + grid > Page Layout > Components
+
 */
 /* NOTE: '*' Universal selector - selects every element on the page */
 *, *::after, *::before {
@@ -53,7 +56,12 @@ html {
 /*  NOTE: Document parent element */
 Body {
   box-sizing: border-box;
-  /* borders and padding no longer added */ }
+  /* borders and padding no longer added */
+  padding: 3rem;
+  /* ((30px)) */ }
+  @media (max-width: 56.25em) {
+    Body {
+      padding: 0; } }
 
 @keyframes moveInLeft {
   0% {
@@ -99,9 +107,7 @@ Body {
   /* font-size: 16px; */
   line-height: 1.7;
   /* 1.7 times bigger than the predefined line height */
-  color: #777;
-  padding: 3rem;
-  /* ((30px)) */ }
+  color: #777; }
 
 .heading-primary {
   color: #fff;
@@ -125,6 +131,10 @@ Body {
     /* Control the animation progression */
     /* animation-delay: 3s; */
     /* animation-iteration-count: 3; */ }
+    @media (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     /* make span a block level element (takes up the full width of its container) */
@@ -134,6 +144,9 @@ Body {
     letter-spacing: 1.75rem;
     /* ((17.5px)) */
     animation: ease-out 1s moveInRight; }
+    @media (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: .5rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
