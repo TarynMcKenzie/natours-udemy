@@ -1,4 +1,4 @@
-// SECTION: partical sass file
+// SECTION: partial sass file
 //       Low level basics: resets, html style, body element selectors, etc.
 
 /* NOTE: '*' Universal selector - selects every element on the page */
@@ -16,7 +16,7 @@ html{
     /*
 
       * Root font-size (default) == 16px
-      * Using pixels to set the root is is bad practice
+      * Using pixels to set the root is bad practice
       * This overrides the users ability to change font sizes on their browser
       * Use % values to adjust the root font-size value
       * value * 16 = percentage value
